@@ -1,0 +1,391 @@
+{
+  "schemaVersion": 1,
+  "id": "little-star",
+  "title": "晚安，小星星",
+  "subtitle": "和小熊一起，把星星送回家",
+  "description": "和小熊走进月光下的森林。看一看，点一点，让小小的故事，在你们的指尖慢慢发生。",
+  "goal": "一起帮帮小星星",
+  "cover": {
+    "background": "assets/background.png",
+    "audio": "assets/audio/cover.wav",
+    "layers": [
+      {
+        "image": "assets/bear.svg",
+        "x": 50,
+        "y": 72,
+        "width": 54,
+        "aspectRatio": 0.75
+      },
+      {
+        "image": "assets/star.svg",
+        "x": 75,
+        "y": 72,
+        "width": 22,
+        "aspectRatio": 1.04
+      }
+    ]
+  },
+  "ending": {
+    "title": "星星回家了，也和你说声晚安。",
+    "text": "谢谢你和朋友一起完成小小的旅程，给身边的人一个拥抱吧。",
+    "image": "assets/star.svg"
+  },
+  "pages": [
+    {
+      "id": "scene-1",
+      "title": "森林醒着呢",
+      "background": "assets/background.png",
+      "narration": {
+        "text": "夜晚的森林里，小熊还没有睡。",
+        "audio": "assets/audio/n0.wav"
+      },
+      "actors": [
+        {
+          "id": "bear",
+          "name": "小熊",
+          "image": "assets/bear.svg",
+          "x": 44,
+          "y": 69,
+          "width": 20,
+          "aspectRatio": 0.75
+        },
+        {
+          "id": "star",
+          "name": "小星星",
+          "image": "assets/star.svg",
+          "x": 69,
+          "y": 72,
+          "width": 9,
+          "aspectRatio": 1.04
+        }
+      ],
+      "steps": [
+        {
+          "target": "bear",
+          "hint": "点点小熊，和它打个招呼",
+          "response": {
+            "text": "你好呀！我们一起去散步吧。",
+            "audio": "assets/audio/r0-0.wav",
+            "animation": "bounce"
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-2",
+      "title": "一颗小星星",
+      "background": "assets/background.png",
+      "narration": {
+        "text": "咦？一颗小星星，落在了软软的草地上。",
+        "audio": "assets/audio/n1.wav"
+      },
+      "actors": [
+        {
+          "id": "bear",
+          "name": "小熊",
+          "image": "assets/bear.svg",
+          "x": 34,
+          "y": 67,
+          "width": 20,
+          "aspectRatio": 0.75
+        },
+        {
+          "id": "star",
+          "name": "小星星",
+          "image": "assets/star.svg",
+          "x": 63,
+          "y": 70,
+          "width": 9,
+          "aspectRatio": 1.04
+        }
+      ],
+      "steps": [
+        {
+          "target": "star",
+          "hint": "轻轻点一点小星星",
+          "response": {
+            "text": "我想回到天上。你能帮帮我吗？",
+            "audio": "assets/audio/r1-0.wav",
+            "animation": "bounce"
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-3",
+      "title": "朋友的办法",
+      "background": "assets/background.png",
+      "narration": {
+        "text": "小兔来了。它有一个好办法！",
+        "audio": "assets/audio/n2.wav"
+      },
+      "actors": [
+        {
+          "id": "bear",
+          "name": "小熊",
+          "image": "assets/bear.svg",
+          "x": 33,
+          "y": 68,
+          "width": 20,
+          "aspectRatio": 0.75
+        },
+        {
+          "id": "rabbit",
+          "name": "小兔",
+          "image": "assets/rabbit.svg",
+          "x": 65,
+          "y": 68,
+          "width": 14,
+          "aspectRatio": 0.67
+        },
+        {
+          "id": "star",
+          "name": "小星星",
+          "image": "assets/star.svg",
+          "x": 49,
+          "y": 76,
+          "width": 9,
+          "aspectRatio": 1.04
+        }
+      ],
+      "steps": [
+        {
+          "target": "rabbit",
+          "hint": "点点小兔，听听它的好办法",
+          "response": {
+            "text": "去小山坡吧！那里离天空很近。",
+            "audio": "assets/audio/r2-0.wav",
+            "animation": "bounce"
+          }
+        },
+        {
+          "target": "bear",
+          "hint": "再点点小熊，一起出发",
+          "response": {
+            "text": "好呀，我们一起走！",
+            "audio": "assets/audio/r2-1.wav",
+            "animation": "bounce"
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-4",
+      "title": "花儿在点头",
+      "background": "assets/background.png",
+      "narration": {
+        "text": "小路边的花儿，正在轻轻地摇。",
+        "audio": "assets/audio/n3.wav"
+      },
+      "actors": [
+        {
+          "id": "bear",
+          "name": "小熊",
+          "image": "assets/bear.svg",
+          "x": 37,
+          "y": 67,
+          "width": 20,
+          "aspectRatio": 0.75
+        },
+        {
+          "id": "flower",
+          "name": "小花",
+          "image": "assets/flower.svg",
+          "x": 66,
+          "y": 72,
+          "width": 11,
+          "aspectRatio": 0.8
+        },
+        {
+          "id": "star",
+          "name": "小星星",
+          "image": "assets/star.svg",
+          "x": 52,
+          "y": 60,
+          "width": 9,
+          "aspectRatio": 1.04
+        }
+      ],
+      "steps": [
+        {
+          "target": "flower",
+          "hint": "点点小花，和它说声晚上好",
+          "response": {
+            "text": "晚上好！轻轻走，慢慢走。",
+            "audio": "assets/audio/r3-0.wav",
+            "animation": "bounce"
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-5",
+      "title": "云朵让一让",
+      "background": "assets/background.png",
+      "narration": {
+        "text": "一朵软软的云，挡住了星星的家。",
+        "audio": "assets/audio/n4.wav"
+      },
+      "actors": [
+        {
+          "id": "bear",
+          "name": "小熊",
+          "image": "assets/bear.svg",
+          "x": 36,
+          "y": 70,
+          "width": 20,
+          "aspectRatio": 0.75
+        },
+        {
+          "id": "cloud",
+          "name": "云朵",
+          "image": "assets/cloud.svg",
+          "x": 65,
+          "y": 38,
+          "width": 26,
+          "aspectRatio": 1.72
+        },
+        {
+          "id": "star",
+          "name": "小星星",
+          "image": "assets/star.svg",
+          "x": 58,
+          "y": 65,
+          "width": 9,
+          "aspectRatio": 1.04
+        }
+      ],
+      "steps": [
+        {
+          "target": "cloud",
+          "hint": "点点云朵，请它让一让",
+          "response": {
+            "text": "呼——我让开啦。",
+            "audio": "assets/audio/r4-0.wav",
+            "animation": "drift"
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-6",
+      "title": "再举高一点",
+      "background": "assets/background.png",
+      "narration": {
+        "text": "小熊站上山坡，把小星星举高高。",
+        "audio": "assets/audio/n5.wav"
+      },
+      "actors": [
+        {
+          "id": "bear",
+          "name": "小熊",
+          "image": "assets/bear.svg",
+          "x": 45,
+          "y": 69,
+          "width": 20,
+          "aspectRatio": 0.75
+        },
+        {
+          "id": "star",
+          "name": "小星星",
+          "image": "assets/star.svg",
+          "x": 61,
+          "y": 50,
+          "width": 9,
+          "aspectRatio": 1.04
+        }
+      ],
+      "steps": [
+        {
+          "target": "bear",
+          "hint": "点点小熊，帮它举高一点",
+          "response": {
+            "text": "一、二、三，举高高！",
+            "audio": "assets/audio/r5-0.wav",
+            "animation": "lift"
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-7",
+      "title": "回到天空啦",
+      "background": "assets/background.png",
+      "narration": {
+        "text": "小星星亮了起来。它就要回家啦！",
+        "audio": "assets/audio/n6.wav"
+      },
+      "actors": [
+        {
+          "id": "bear",
+          "name": "小熊",
+          "image": "assets/bear.svg",
+          "x": 40,
+          "y": 72,
+          "width": 20,
+          "aspectRatio": 0.75
+        },
+        {
+          "id": "star",
+          "name": "小星星",
+          "image": "assets/star.svg",
+          "x": 63,
+          "y": 51,
+          "width": 9,
+          "aspectRatio": 1.04
+        }
+      ],
+      "steps": [
+        {
+          "target": "star",
+          "hint": "点点小星星，送它回家",
+          "response": {
+            "text": "谢谢你！晚安，小熊。",
+            "audio": "assets/audio/r6-0.wav",
+            "animation": "fly"
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-8",
+      "title": "晚安，小伙伴",
+      "background": "assets/background.png",
+      "narration": {
+        "text": "星星回家了，小熊也该回家睡觉啦。",
+        "audio": "assets/audio/n7.wav"
+      },
+      "actors": [
+        {
+          "id": "bear",
+          "name": "小熊",
+          "image": "assets/bear.svg",
+          "x": 43,
+          "y": 70,
+          "width": 20,
+          "aspectRatio": 0.75
+        },
+        {
+          "id": "moon",
+          "name": "月亮",
+          "image": "assets/moon.svg",
+          "x": 70,
+          "y": 30,
+          "width": 12,
+          "aspectRatio": 1.04
+        }
+      ],
+      "steps": [
+        {
+          "target": "moon",
+          "hint": "点点月亮，轻轻说声晚安",
+          "response": {
+            "text": "晚安，小熊。晚安，亲爱的你。",
+            "audio": "assets/audio/r7-0.wav",
+            "animation": "bounce"
+          }
+        }
+      ]
+    }
+  ]
+}

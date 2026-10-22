@@ -1,0 +1,56 @@
+/* Immersive mode is an explicit reading state, separate from the prototype navigation. */
+.story-lock-control[hidden],.story-fullscreen-gate[hidden],.story-ending[hidden],.story-lock-tip[hidden]{display:none}
+.actor-layer{position:absolute;inset:0}
+.story-lock-control{display:none}
+body.story-active{overflow:hidden;overscroll-behavior:none}
+.story-immersive{position:fixed;inset:0;z-index:50;isolation:isolate;width:100%;height:100%;height:100dvh;max-width:none;margin:0;padding:0;background:#102332;overflow:hidden;overscroll-behavior:none;touch-action:pan-y}
+.story-immersive:fullscreen{width:100vw;height:100vh;height:100dvh;background:#102332}
+.story-immersive::backdrop{background:#102332}
+.story-active .reader-shell>.site-header{display:none}
+.story-immersive .reader-topline,.story-immersive .reader-controls,.story-immersive .reading-tip{display:none}
+.story-immersive .stage{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;border-radius:0;box-shadow:none}
+.story-immersive .forest-layer{background-size:cover;background-position:center 55%}
+.story-immersive .actor-layer{bottom:clamp(118px,19vh,180px)}
+.story-immersive .actor.bear{width:min(20vw,24vh);min-width:80px;min-height:80px}
+.story-immersive .actor.rabbit{width:min(16vw,18vh);min-width:74px;min-height:100px}
+.story-immersive .actor.star{width:min(10vw,12vh);min-width:64px;min-height:64px}
+.story-immersive .actor.cloud{width:min(27vw,30vh);min-width:100px;min-height:66px}
+.story-immersive .actor.flower{width:min(13vw,16vh);min-width:70px;min-height:90px}
+.story-immersive .actor.moon{width:min(13vw,17vh);min-width:70px;min-height:70px}
+.story-immersive .scene-label{top:max(24px,env(safe-area-inset-top));left:max(24px,env(safe-area-inset-left));opacity:.8}
+.story-immersive .scene-hint{display:none}
+.story-immersive .speech-bubble{top:25%;font-size:clamp(13px,1.5vw,19px);max-width:min(70vw,360px)}
+.story-immersive .caption-area{position:absolute;inset:auto 0 0;display:flex;justify-content:center;align-items:center;z-index:5;height:clamp(118px,19vh,180px);min-height:0;padding:14px 85px max(18px,env(safe-area-inset-bottom));background:linear-gradient(transparent,#0b1f30d9 35%,#0b1f30f2);pointer-events:none}
+.story-immersive .caption-area>div{max-width:900px}
+.story-immersive .caption-text{font-size:clamp(20px,2.4vw,32px);line-height:1.55;text-shadow:0 2px 9px #06141f}
+.story-immersive .caption-type{font-size:10px;margin-bottom:8px}
+.story-immersive .interaction-instruction{color:#c4d0d3;font-size:clamp(11px,1vw,13px);min-height:18px;margin-top:7px}
+.story-immersive .page-arrow{position:fixed;top:50%;transform:translateY(-50%);width:58px;height:58px;pointer-events:auto;background:#152f3cb8;border-color:#ffedc838;box-shadow:0 4px 20px #0002;color:#f9eac9;backdrop-filter:blur(7px)}
+.story-immersive #prev-page{left:max(22px,env(safe-area-inset-left))}
+.story-immersive #next-page{right:max(22px,env(safe-area-inset-right));background:#f3cc7ee8;color:#28362f}
+.story-immersive .page-arrow:disabled{pointer-events:none;opacity:.22}
+.story-immersive .sound-notice{position:absolute;z-index:8;top:80px;left:50%;transform:translateX(-50%);max-width:80%;width:max-content;pointer-events:none}
+.story-immersive .story-lock-control{position:absolute;z-index:25;right:max(23px,env(safe-area-inset-right));top:max(18px,env(safe-area-inset-top));display:flex;flex-direction:column;align-items:center;gap:7px;color:#f4e7c7}
+.lock-hold-ring{display:grid;place-items:center;width:51px;height:51px;border:2px solid transparent;border-radius:50%;background:linear-gradient(#1c3441e8,#1c3441e8) padding-box,conic-gradient(#f3cc7e calc(var(--hold,0)*1turn),#d4dbd733 0) border-box;backdrop-filter:blur(8px)}
+.story-lock-control.holding .lock-hold-ring{background:linear-gradient(#34483ff0,#34483ff0) padding-box,conic-gradient(#f3cc7e calc(var(--hold)*1turn),#d4dbd733 0) border-box}
+.story-lock-control .lock-hold-ring svg{width:21px;height:21px}
+.story-lock-control>small{font-size:9px;letter-spacing:1px;text-shadow:0 1px 6px #000}
+.story-lock-tip{position:absolute;right:23px;top:99px;z-index:24;border:1px solid #f3cc7e40;border-radius:11px;background:#1a303ee8;padding:11px 15px;color:#f2dfb8;font-size:11px;pointer-events:none;box-shadow:0 6px 20px #0003}
+.story-immersive .pause-cover{background:#0c22365e}
+.story-fullscreen-gate{position:absolute;inset:0;z-index:20;background:#102332e8;backdrop-filter:blur(12px);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:18px;text-align:center;padding:45px 30px}
+.story-fullscreen-gate .gate-symbol{width:75px;height:75px;display:grid;place-items:center;background:#f3cc7e10;border:1px solid #f3cc7e44;border-radius:50%;color:var(--gold);margin-bottom:6px}
+.story-fullscreen-gate .gate-symbol svg{width:28px;height:28px}
+.story-fullscreen-gate h2{font-size:28px;letter-spacing:3px}
+.story-fullscreen-gate p{font-size:13px;max-width:390px;color:var(--muted)}
+.story-fullscreen-gate .text-link{font-size:12px;padding:7px}
+.story-ending{position:absolute;inset:0;z-index:12;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(#102332cc,#102332e6);backdrop-filter:blur(5px);padding:40px 25px;gap:20px}
+.story-ending .ending-star{width:95px;height:95px;filter:drop-shadow(0 0 25px #e4c67955)}
+.story-ending h2{font-size:clamp(30px,4vw,48px);line-height:1.6;letter-spacing:3px}
+.story-ending p{font-size:13px;color:#bbc9cd}
+.story-ending small{font-size:10px;color:#93a7b2;margin-top:6px}
+.story-finished .caption-area{display:none}
+.story-immersive dialog{position:fixed;z-index:40;max-height:calc(100dvh - 36px);overflow:auto;margin:auto}
+.story-immersive dialog::backdrop{background:#0a1b2bd9}
+.story-immersive .exit-story{color:#eed1ab;border-color:#e1b37533}
+@media(max-width:760px){.story-immersive .caption-area{padding-right:35px;padding-left:35px;height:148px}.story-immersive .actor-layer{bottom:148px}.story-immersive .caption-text{font-size:22px}.story-immersive .caption-type{font-size:9px}.story-immersive .page-arrow{width:46px;height:46px}.story-immersive #prev-page{left:max(10px,env(safe-area-inset-left))}.story-immersive #next-page{right:max(10px,env(safe-area-inset-right))}.story-immersive .scene-label{font-size:9px;top:max(22px,env(safe-area-inset-top));left:17px;max-width:65%}.story-immersive .story-lock-control{right:16px;top:max(16px,env(safe-area-inset-top))}.story-lock-tip{right:16px}.story-fullscreen-gate h2{font-size:24px}.story-immersive .speech-bubble{font-size:13px}}
+@media(max-height:520px){.story-immersive .actor-layer{bottom:105px}.story-immersive .caption-area{height:105px;padding-top:8px;padding-bottom:10px}.story-immersive .caption-text{font-size:20px}.story-immersive .interaction-instruction{font-size:10px;margin-top:3px;min-height:16px}.story-immersive .caption-type{font-size:8px;margin-bottom:3px}.story-immersive .scene-label{top:15px;font-size:9px}.story-immersive .story-lock-control{top:12px}.lock-hold-ring{width:45px;height:45px}.story-lock-tip{top:83px}.story-immersive .speech-bubble{top:23%;padding:8px 14px}.story-ending{gap:10px}.story-ending .ending-star{height:55px;width:55px}.story-ending h2{font-size:27px;line-height:1.3}.story-ending p{font-size:11px}}
