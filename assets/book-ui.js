@@ -20,10 +20,10 @@ window.BookUI=(function(){
   const input=document.querySelector('#book-file');if(!input)return;
   const status=document.querySelector('#import-status'),zone=document.querySelector('#import-zone');let busy=false;
   const say=(text,error=false)=>{status.textContent=text;status.classList.toggle('is-error',error);status.setAttribute('role',error?'alert':'status');};
-  const setBusy=value=>{busy=value;zone.setAttribute('aria-busy',String(value));$$('[data-import-book],#load-demo').forEach(el=>el.disabled=value);};
-  async function importBook(file){
+  const setBusy=value=>{busy=value;zone.setAttribute('aria-busy',String(value));$$('[data-import-book],#load-demo,#load-rabbit').forEach(el=>el.disabled=value);};
+  async function importBook(file,destination='index.html?imported=1'){
    if(busy||!file)return;setBusy(true);say('正在检查故事配置、图片和音频，请稍等……');
-   try{const book=await StoryPackages.importFile(file);say('导入完成，正在打开「'+book.manifest.title+'」……');book.release();location.href='index.html?imported=1';}
+   try{const book=await StoryPackages.importFile(file);say('导入完成，正在打开「'+book.manifest.title+'」……');book.release();location.href=destination;}
    catch(error){say(error.message+'。当前故事不会被替换。',true);setBusy(false);}
    finally{input.value='';}
   }
@@ -32,11 +32,13 @@ window.BookUI=(function(){
   zone.addEventListener('dragover',event=>{event.preventDefault();if(!busy)zone.classList.add('dragging');});
   zone.addEventListener('dragleave',()=>zone.classList.remove('dragging'));
   zone.addEventListener('drop',event=>{event.preventDefault();zone.classList.remove('dragging');if(!busy){if(event.dataTransfer.files.length!==1){say('每次请选择一个 ZIP 故事本。',true);return;}importBook(event.dataTransfer.files[0]);}});
-  document.querySelector('#load-demo').addEventListener('click',async()=>{
-   if(busy)return;setBusy(true);say('正在打开示例故事包……');
-   try{const result=await fetch('storybooks/samples/moon-star.zip');if(!result.ok)throw new Error('无法加载示例，请下载示例 ZIP 后手动导入');const file=new File([await result.arrayBuffer()],'moon-star.zip',{type:'application/zip'});setBusy(false);await importBook(file);}
-   catch(error){say(error.message,true);setBusy(false);}
-  });
+  async function loadSample(path,name,title,destination){
+   if(busy)return;setBusy(true);say('正在打开《'+title+'》，请稍等……');
+   try{const result=await fetch(path);if(!result.ok)throw new Error('download');const file=new File([await result.arrayBuffer()],name,{type:'application/zip'});setBusy(false);await importBook(file,destination);}
+   catch{say('暂时无法加载《'+title+'》，请检查网络后重试，或下载 ZIP 后手动导入。当前故事不会被替换。',true);setBusy(false);}
+  }
+  document.querySelector('#load-demo').addEventListener('click',()=>loadSample('storybooks/samples/moon-star.zip','moon-star.zip','晚安，小星星'));
+  document.querySelector('#load-rabbit')?.addEventListener('click',()=>loadSample('storybooks/samples/rabbit-red-umbrella-audio-v3.zip','rabbit-red-umbrella-audio-v3.zip','小兔子的红雨伞','read.html?p=0&cover=1'));
  }
  function empty(error){
   const status=document.querySelector('#import-status');if(status){status.textContent=error||'还没有故事本，导入一个 ZIP 包即可开始。';status.classList.toggle('is-error',Boolean(error));$$('[data-book-read]').forEach(el=>{el.setAttribute('aria-disabled','true');el.classList.add('is-disabled');el.addEventListener('click',event=>event.preventDefault());});return;}
